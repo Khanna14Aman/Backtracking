@@ -1,6 +1,6 @@
-//This solution will print all possible path to reach the destination;
 //This solution is to print string of all the path traverse by rat in moving from start to last;
 //1 means we cant go there and 0 means we can go there.
+
 #include<iostream>
 #include<vector>
 #include<string>
@@ -8,7 +8,7 @@ using namespace std;
 int dx[] = {-1,0,1,0};
 int dy[] = {0,1,0,-1};
 string s = "URDL";
-void maze(int i, int j, string move, vector<vector<int>>vis,int n)//here we not use "&" in recieving vector vis that is why it print all possible path.
+void maze(int i, int j, string move, vector<vector<int>>vis,int n) 
 {
 	if(i==(n-1) && j==(n-1))
 	{
@@ -22,10 +22,9 @@ void maze(int i, int j, string move, vector<vector<int>>vis,int n)//here we not 
 
 		if(newi >= 0 && newj >= 0 && newi < n && newj < n && vis[newi][newj]==0)
 		{
-			vis[newi][newj]=1;
+			vis[i][j]=1;
 			maze(newi,newj,move+s[ind],vis,n);
 			vis[i][j]=0;
-
 		}
 	}
 }
