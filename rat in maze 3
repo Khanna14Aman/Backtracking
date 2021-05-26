@@ -33,7 +33,7 @@ void maze(int i, int j, vector<vector<int>>&vis,int n,vector<vector<int>>sol)//h
 		if(newi >= 0 && newj >= 0 && newi < n && newj < n && vis[newi][newj]==0)
 		{
 			vis[newi][newj]=1;
-			sol[i][j]=1;
+			sol[newi][newj]=1;
 			maze(newi,newj,vis,n,sol);
 			vis[i][j]=0;
 		}
