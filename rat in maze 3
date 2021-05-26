@@ -1,7 +1,6 @@
-//This solution will print only one possible path and after that it will finish.
-//This solution is to print string of all the path traverse by rat in moving from start to last;
 //1 means we cant go there and 0 means we can go there.
 //It will print path of rat through which it will travel '''' path will shown by 1.
+//It wil print all path .
 
 #include<iostream>
 #include<vector>
@@ -10,7 +9,7 @@ using namespace std;
 int dx[] = {-1,0,1,0};
 int dy[] = {0,1,0,-1};
 
-void maze(int i, int j, vector<vector<int>>&vis,int n,vector<vector<int>>sol)//here we use "&" in recieving vector vis so that is why it will be updated all the time that is why when one path get it will finish computing for other path. 
+void maze(int i, int j, vector<vector<int>>&vis,int n,vector<vector<int>>&sol) 
 {
 	if(i==(n-1) && j==(n-1))
 	{
@@ -32,10 +31,11 @@ void maze(int i, int j, vector<vector<int>>&vis,int n,vector<vector<int>>sol)//h
 
 		if(newi >= 0 && newj >= 0 && newi < n && newj < n && vis[newi][newj]==0)
 		{
-			vis[newi][newj]=1;
-			sol[newi][newj]=1;
+			vis[i][j]=1;
+			sol[i][j]=1;
 			maze(newi,newj,vis,n,sol);
 			vis[i][j]=0;
+			sol[i][j]=0;
 		}
 	}
 }
